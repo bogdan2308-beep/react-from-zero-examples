@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React from Zero — Routing</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react-router-dom@6/client/browser.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+      .app { padding: 2rem; max-width: 800px; margin: 0 auto; }
+      .card { border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }
+      nav { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; }
+    </style>
+  </head>
+  <body>
+    <nav class="app">
+      <div class="container">
+        <a href="/" class="btn btn-primary">Home</a>
+        <a href="/about" class="btn btn-secondary">About</a>
+        <a href="/contact" class="btn btn-link">Contact</a>
+      </div>
+    </div>
+    <div id="root" class="app"></div>
+    
+    <script type="text/babel">
+      // Example 5: React Router basic setup
+      // From Chapter 5 of "React from Zero"
+      
+      const Home = () => React.createElement('div', { className: 'card' },
+        React.createElement('h2', null, 'Home Page'),
+        React.createElement('p', null, 'Welcome to React from Zero — learn the fundamentals.'
+      ));
+      
+      const About = () => React.createElement('div', { className: 'card' },
+        React.createElement('h2', null, 'About Page'),
+        React.createElement('p', null, 'This book teaches React from the ground up.'
+      ));
+      
+      const Contact = () => React.createElement('div', { className: 'card' },
+        React.createElement('h2', null, 'Contact Page'),
+        React.createElement('p', null, 'Contact us at contact@reactfromzero.example.'
+      ));
+      
+      const router = (
+        <ReactRouterDom.BrowserRouter>
+          <ReactRouterDom.Routes>
+            <ReactRouterDom.Route path="/" element={<Home />} />
+            <ReactRouterDom.Route path="/about" element={<About />} />
+            <ReactRouterDom.Route path="/contact" element={<Contact />} />
+          </ReactRouterDom.Routes>
+        </ReactRouterDom.BrowserRouter>
+      );
+      
+      ReactDOM.render(router, document.getElementById('root'));
+    </script>
+  </body>
+</html>

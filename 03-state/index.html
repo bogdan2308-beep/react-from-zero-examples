@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React from Zero — State</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+      .app { padding: 2rem; max-width: 800px; margin: 0 auto; }
+      .card { border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }
+      .counter { font-size: 2rem; margin: 1rem 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="app"></div>
+    
+    <script type="text/babel">
+      // Example 3: useState hook — counter component
+      // From Chapter 3 of "React from Zero"
+      
+      function Counter() {
+        const [count, setCount] = React.useState(0);
+        
+        return React.createElement('div', { className: 'card' },
+          React.createElement('h2', { className: 'counter' }, `Count: ${count}`),
+          React.createElement('button', {
+            onClick: () => setCount(count + 1),
+            className: 'btn btn-primary'
+          }, 'Increment')
+        );
+      }
+      
+      ReactDOM.render(React.createElement(Counter), document.getElementById('root'));
+    </script>
+  </body>
+</html>
